@@ -29,11 +29,7 @@ module DeviseTokenAuth::Concerns::ResourceFinder
   end
 
   def resource_class(m = nil)
-    mapping = if m
-                Devise.mappings[m]
-              else
-                Devise.mappings[resource_name] || Devise.mappings.values.first
-              end
+    mapping = Devise.mappings[:account]
 
     mapping.to
   end
